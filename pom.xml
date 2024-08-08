@@ -72,6 +72,13 @@
             <artifactId>liquibase-core</artifactId>
             <version>4.29.1</version>
         </dependency>
+
+        <!-- DOTENV -->
+        <dependency>
+            <groupId>me.paulschwarz</groupId>
+            <artifactId>spring-dotenv</artifactId>
+            <version>4.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>
