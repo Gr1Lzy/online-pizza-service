@@ -4,4 +4,8 @@ databaseChangeLog:
   - include:
       file: db/changelog/changeset/02-create-category-table.yaml
   - include:
-      file: db/changelog/changeset/03-create-products-table.yaml
+      file: db/changelog/changeset/03-create-ingredient-table.yaml
+  - include:
+      file: db/changelog/changeset/04-create-products-table.yaml
+  - include:
+      file: db/changelog/changeset/05-create-products-ingredients-table.yaml
