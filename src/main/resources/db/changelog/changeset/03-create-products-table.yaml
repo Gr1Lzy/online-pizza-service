@@ -22,7 +22,7 @@ databaseChangeLog:
                   name: image_url
                   type: VARCHAR(255)
                   constraints:
-                    nullable: true
+                    nullable: false
               - column:
                   name: created_at
                   type: TIMESTAMP
@@ -34,3 +34,14 @@ databaseChangeLog:
                   type: TIMESTAMP
                   constraints:
                     nullable: true
+              - column:
+                  name: category_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: products
+            baseColumnNames: category_id
+            constraintName: fk_category_product
+            referencedTableName: categories
+            referencedColumnNames: id
