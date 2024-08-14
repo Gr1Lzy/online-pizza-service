@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-products-ingredients-table
+      author: Andrew Kolomoiets
+      changes:
+        - createTable:
+            tableName: products_ingredients
+            columns:
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ingredient_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: products_ingredients
+            baseColumnNames: product_id
+            constraintName: fk_products_ingredients_product
+            referencedTableName: products
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            baseTableName: products_ingredients
+            baseColumnNames: ingredient_id
+            constraintName: fk_products_ingredients_ingredient
+            referencedTableName: ingredients
+            referencedColumnNames: id
+        - addPrimaryKey:
+            tableName: products_ingredients
+            columnNames: product_id, ingredient_id
