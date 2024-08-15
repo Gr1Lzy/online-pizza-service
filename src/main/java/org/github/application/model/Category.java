@@ -29,8 +29,7 @@ public class Category {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @OneToMany
+    @OneToMany(mappedBy = "category")
     @ToString.Exclude
-    @Column(name = "products", nullable = false)
     private Set<Product> products;
 }

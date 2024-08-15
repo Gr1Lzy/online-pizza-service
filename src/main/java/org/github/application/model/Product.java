@@ -36,9 +36,9 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @ManyToOne
-    @JoinColumn(name = "product_item_id", nullable = false)
-    private ProductItem items;
+    @OneToMany(mappedBy = "product")
+    @ToString.Exclude
+    private Set<ProductItem> items;
 
     @ManyToMany
     @JoinTable(
