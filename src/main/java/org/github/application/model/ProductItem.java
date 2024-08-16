@@ -25,7 +25,7 @@ public class ProductItem {
     @Column(name = "size", nullable = true)
     private Long size;
 
-    @Column(name = "pizza_type", nullable = false)
+    @Column(name = "pizza_type", nullable = true)
     private Long pizzaType;
 
     @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
