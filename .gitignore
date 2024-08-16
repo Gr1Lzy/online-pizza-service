@@ -20,7 +20,6 @@ target/
 *.ipr
 
 # Ignore development configuration files
-/src/main/resources/application-dev.yaml
 .env
 
 ### NetBeans ###
