@@ -48,4 +48,15 @@ public class Product {
     )
     @ToString.Exclude
     private Set<Ingredient> ingredients;
+
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }

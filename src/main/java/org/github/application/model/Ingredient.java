@@ -35,4 +35,15 @@ public class Ingredient {
     @ManyToMany(mappedBy = "ingredients")
     @ToString.Exclude
     private Set<Product> products;
+
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }
