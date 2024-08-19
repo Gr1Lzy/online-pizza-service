@@ -26,7 +26,7 @@ public class Ingredient {
     @Column(name = "price", nullable = false)
     private Long price;
 
-    @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")

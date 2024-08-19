@@ -26,7 +26,7 @@ public class Product {
     @Column(name = "image_url", nullable = false)
     private String imageUrl;
 
-    @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")

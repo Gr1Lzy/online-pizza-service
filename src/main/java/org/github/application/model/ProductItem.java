@@ -22,13 +22,13 @@ public class ProductItem {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "size", nullable = true)
+    @Column(name = "size")
     private Long size;
 
-    @Column(name = "pizza_type", nullable = true)
+    @Column(name = "pizza_type")
     private Long pizzaType;
 
-    @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")

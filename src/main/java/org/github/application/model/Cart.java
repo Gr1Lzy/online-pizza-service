@@ -20,18 +20,30 @@ public class Cart {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "user_id", nullable = true)
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "total_amount", nullable = false, columnDefinition = "BIGINT DEFAULT 0")
+    @Column(name = "total_amount", nullable = false)
     private Long totalAmount;
 
     @Column(name = "token", nullable = false)
     private String token;
 
-    @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+
+    @PrePersist
+    protected void onCreate() {
+        totalAmount = 0L;
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }
