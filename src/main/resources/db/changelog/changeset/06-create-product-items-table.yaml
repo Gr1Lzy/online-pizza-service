@@ -11,8 +11,8 @@ databaseChangeLog:
                   type: BIGINT
                   autoIncrement: true
                   constraints:
-                    primaryKey: true
                     nullable: false
+                    primaryKey: true
               - column:
                   name: name
                   type: VARCHAR(255)
