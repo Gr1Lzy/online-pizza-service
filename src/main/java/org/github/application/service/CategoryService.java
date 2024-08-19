@@ -15,7 +15,7 @@ public interface CategoryService {
 
     void delete(Long id);
 
-    List<CategoryDto> findAll();
+    List<Optional<CategoryDto>> findAll();
 
     Optional<CategoryDto> findById(Long id);
 
