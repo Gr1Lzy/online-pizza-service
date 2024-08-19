@@ -2,19 +2,18 @@ package org.github.application.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.github.application.util.BaseEntity;
 
-import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
-@ToString
-@RequiredArgsConstructor
+@ToString(callSuper = true)
 @Entity
 @Table(name = "product_items")
-public class ProductItem {
+public class ProductItem extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,24 +27,11 @@ public class ProductItem {
     @Column(name = "pizza_type")
     private Long pizzaType;
 
-    @Column(name = "created_at", nullable = false)
-    private LocalDateTime createdAt;
-
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
+    @OneToMany(mappedBy = "productItem", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private Set<CartItem> cartItems;
 }

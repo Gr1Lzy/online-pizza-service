@@ -2,20 +2,18 @@ package org.github.application.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.github.application.util.BaseEntity;
 
-import java.time.LocalDateTime;
 import java.util.Set;
 
 @Getter
 @Setter
-@ToString
-@RequiredArgsConstructor
+@ToString(callSuper = true)
 @Entity
 @Table(name = "ingredients")
-public class Ingredient {
+public class Ingredient extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,24 +24,11 @@ public class Ingredient {
     @Column(name = "price", nullable = false)
     private Long price;
 
-    @Column(name = "created_at", nullable = false)
-    private LocalDateTime createdAt;
-
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
     @ManyToMany(mappedBy = "ingredients")
     @ToString.Exclude
     private Set<Product> products;
 
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
+    @ManyToMany(mappedBy = "ingredients")
+    @ToString.Exclude
+    private Set<CartItem> cartItems;
 }
