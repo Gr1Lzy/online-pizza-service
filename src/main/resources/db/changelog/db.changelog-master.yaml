@@ -2,9 +2,9 @@ databaseChangeLog:
   - include:
       file: db/changelog/changeset/01-create-users-table.yaml
   - include:
-      file: db/changelog/changeset/02-create-category-table.yaml
+      file: db/changelog/changeset/02-create-categories-table.yaml
   - include:
-      file: db/changelog/changeset/03-create-ingredient-table.yaml
+      file: db/changelog/changeset/03-create-ingredients-table.yaml
   - include:
       file: db/changelog/changeset/04-create-products-table.yaml
   - include:
@@ -12,8 +12,8 @@ databaseChangeLog:
   - include:
       file: db/changelog/changeset/06-create-product-items-table.yaml
   - include:
-      file: db/changelog/changeset/07-create-cart-table.yaml
+      file: db/changelog/changeset/07-create-carts-table.yaml
   - include:
       file: db/changelog/changeset/08-create-cart-items-table.yaml
   - include:
-      file: db/changelog/changeset/09-create-order-table.yaml
+      file: db/changelog/changeset/09-create-orders-table.yaml
